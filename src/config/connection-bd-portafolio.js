@@ -1,14 +1,14 @@
 const mysql = require('mysql2');
 
 // Crear la conexión a la base de datos
-const db = mysql.createConnection({
+const dbPortafolio = mysql.createConnection({
   host: 'localhost',
   user: 'root',
   password: 'root',
-  database: 'estudio'
+  database: 'ContactMe'
 });
 
-db.connect((err) => {
+dbPortafolio.connect((err) => {
   if (err) {
     console.error('Error al conectar a la base de datos: ', err);
     process.exit(1);
@@ -17,4 +17,4 @@ db.connect((err) => {
   }
 });
 
-module.exports = db;
+module.exports = dbPortafolio;

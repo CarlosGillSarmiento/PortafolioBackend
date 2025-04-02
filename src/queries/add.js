@@ -1,10 +1,10 @@
-const db = require('../config/connection-bd');
+const dbPortafolio = require('../config/connection-bd-portafolio');
 
-function agregarUsuarios(user_name, user_email, Name, last_name) {
+function addContactMe(name, email, message) {
   return new Promise((resolve, reject) => {
-    db.query(
-      'INSERT INTO USUARIOS (user_name, user_email, create_at, Name, last_name) VALUES (?, ?, CURRENT_TIMESTAMP, ?, ?)',
-      [user_name, user_email, Name, last_name],
+    dbPortafolio.query(
+      'INSERT INTO contacts (name, email, message) VALUES (?, ?, ?)',
+      [name, email, message],
       (err, results) => {
         if (err) {
           reject('Error al insertar el registro:', err);
@@ -16,4 +16,4 @@ function agregarUsuarios(user_name, user_email, Name, last_name) {
   });
 }
 
-module.exports = agregarUsuarios;
+module.exports = addContactMe;
