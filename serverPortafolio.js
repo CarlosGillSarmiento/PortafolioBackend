@@ -7,7 +7,6 @@ const addContactMe = require('./src/queries/add');
 app.use(cors());
 app.use(express.json());
 
-
 app.post('/portfolio/contact', (req, res) => {
   const { name, email, message } = req.body;
 
